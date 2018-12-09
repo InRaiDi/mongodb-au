@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <title>Вход</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h1 class="title">Вход</h1>
+      <form action="/login" method="POST">
+        <div class="field">
+          <label class="label">E-mail</label>
+          <div class="control">
+            <input class="input" type="email" placeholder="E-mail" name="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Пароль</label>
+          <div class="control">
+            <input class="input" type="password" placeholder="Пароль" name="password" required>
+          </div>
+        </div>
+        <button class="button is-primary">Login</button>
+        <a href="/register" class="button is-white">Зарегистрироваться</a>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

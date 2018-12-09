@@ -1,0 +1,77 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <title>Редактирование компьютера</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h1 class="title">Редактирование</h1>
+      <form action="/update/<%= computer._id%>" method="post">
+        <div class="field">
+          <label class="label">Фирма</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Фирма" name="firm" value="<%= computer.firm %>">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Модель</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Модель" name="model" value="<%= computer.model %>">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">RAM</label>
+          <div class="control">
+            <input class="input" type="number" placeholder="RAM" name="ram" min="0" max="100000" value="<%= computer.ram %>">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">OS</label>
+          <div class="select">
+            <select name="os" id="os">
+              <option value="Windows">Windows</option>
+              <option value="Android">Android</option>
+              <option value="Linux">Linux</option>
+              <option value="MSDOS">MsDOS</option>
+              <option value="MacOS">MacOS</option>
+              <option value="ChromeOS">ChromeOS</option>
+            </select>
+          </div>
+
+        </div>
+        <div class="field">
+          <label class="label">Цвет</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Цвет" name="color" value="<%= computer.color %>">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Цена</label>
+          <div class="control">
+            <input class="input" type="number" placeholder="Цена" name="price" min="0" max="1000000" value="<%= computer.price %>">
+          </div>
+        </div>
+        <div class="control">
+          <button class="button is-link" type="submit">Сохранить</button>
+        </div>
+      </form>
+
+      <a href="/" class="button is-warning link-back">Назад</a>
+
+      <form action="/delete" method="POST">
+        <input type="text" name="_id" value="<%= computer._id %>" hidden>
+        <button class="button is-danger">Удалить</button>
+      </form>
+    </div>
+
+
+  </div>
+</body>
+
+</html>

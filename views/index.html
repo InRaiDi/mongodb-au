@@ -1,0 +1,68 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <title>Главная | Компьютеры</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-container main-container">
+      <h1 class="title">Компьютеры</h1>
+      <div class="table-container">
+        <table class="table is-striped is-fullwidth">
+          <tr>
+            <th>ID</th>
+            <th>Фирма</th>
+            <th>Модель</th>
+            <th>RAM</th>
+            <th>OS</th>
+            <th>Цвет</th>
+            <th>Цена</th>
+            <th>Редактировать</th>
+            <th>Удалить</th>
+          </tr>
+          <% for(let i = 0; i < computers.length; i++) { %>
+          <tr>
+            <td>
+              <%= computers[i]._id %>
+            </td>
+            <td>
+              <%= computers[i].firm %>
+            </td>
+            <td>
+              <%= computers[i].model %>
+            </td>
+            <td>
+              <%= computers[i].ram %>
+            </td>
+            <td>
+              <%= computers[i].os %>
+            </td>
+            <td>
+              <%= computers[i].color %>
+            </td>
+            <td>
+              <%= computers[i].price %>
+            </td>
+            <td><a class="button is-warning" href="/edit/<%= computers[i]._id %>">Редактировать</a></td>
+            <td>
+              <form action="/delete" method="POST">
+                <input type="text" name="_id" value="<%= computers[i]._id %>" hidden>
+                <button class="button is-danger">Удалить</button>
+              </form>
+            </td>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+      <a href="/add" class="button is-info">Добавить новый компьютер</a>
+      <a href="/logout" class="button is-light">Выйти</a>
+    </div>
+  </div>
+</body>
+
+</html>
